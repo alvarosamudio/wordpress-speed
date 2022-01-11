@@ -6,14 +6,14 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install sudo apache2 libapache2-mod-php7.4 php7.4 php7.4-mysql phpmyadmin mysql-server curl
 
 # Download WordPress
-RUN wp_version=5.6 && \
+RUN wp_version=5.8.3 && \
     curl -L "https://wordpress.org/wordpress-${wp_version}.tar.gz" > /wordpress-${wp_version}.tar.gz && \
     rm /var/www/html/index.html && \
     tar -xzf /wordpress-${wp_version}.tar.gz -C /var/www/html --strip-components=1 && \
     rm /wordpress-${wp_version}.tar.gz
  
 # Download WordPress CLI
-RUN cli_version=2.4.1 && \
+RUN cli_version=2.5.0 && \
     curl -L "https://github.com/wp-cli/wp-cli/releases/download/v${cli_version}/wp-cli-${cli_version}.phar" > /usr/bin/wp && \
     chmod +x /usr/bin/wp
 
