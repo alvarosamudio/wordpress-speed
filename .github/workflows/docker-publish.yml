@@ -18,14 +18,12 @@ on:
 env:
   # Use docker.io for Docker Hub
   REGISTRY: docker.io
-  # Replace with your Docker Hub username/repository
-  IMAGE_NAME: ${{ secrets.DOCKER_HUB_USERNAME }}/wordpress-speed
-
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    env:
+      IMAGE_NAME: ${{ secrets.DOCKER_HUB_USERNAME }}/wordpress-speed
     permissions:
       contents: read
       packages: write
